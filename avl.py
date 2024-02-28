@@ -17,6 +17,8 @@ class AVLTree:
     def __init__(self, key = None):
         self.left = None
         self.right = None
+        self.height = 0
+        self.balance_factor = 0
         self.key = key
         
     def insert(self, node_to_insert):

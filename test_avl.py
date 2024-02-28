@@ -21,20 +21,20 @@ class TestAVLTree(unittest.TestCase):
         except NameError:
             self.fail("Could not instantiate AVLTree.")
 
-    # def test_initial_attributes(self):
-    #     """
-    #     Test 2: A AVL Tree is a recursive structure. When we refer to an object that "is a avl_tree,"
-    #     we are referring to a root node of an AVL tree.
-    #     Every node has a left child, right child, key, height, and balance factor.
-    #     A new AVLTree has a left, right, key, that are each None, a height set to 1 and a balance factor set to 0.
-    #     Hint: Define an initializer.
-    #     """
-    #     avl_tree = AVLTree()
-    #     self.assertIsNone(avl_tree.left)
-    #     self.assertIsNone(avl_tree.right)
-    #     self.assertIsNone(avl_tree.key)
-    #     self.assertEqual(0, avl_tree.height)
-    #     self.assertEqual(0, avl_tree.balance_factor)
+    def test_initial_attributes(self):
+        """
+        Test 2: A AVL Tree is a recursive structure. When we refer to an object that "is a avl_tree,"
+        we are referring to a root node of an AVL tree.
+        Every node has a left child, right child, key, height, and balance factor.
+        A new AVLTree has a left, right, key, that are each None, a height set to 1 and a balance factor set to 0.
+        Hint: Define an initializer.
+        """
+        avl_tree = AVLTree()
+        self.assertIsNone(avl_tree.left)
+        self.assertIsNone(avl_tree.right)
+        self.assertIsNone(avl_tree.key)
+        self.assertEqual(0, avl_tree.height)
+        self.assertEqual(0, avl_tree.balance_factor)
 
     # """
     # Cute, single-level trees. (Depth of zero.)
