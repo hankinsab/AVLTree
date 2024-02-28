@@ -22,6 +22,7 @@ class AVLTree:
         self.key = key
         
     def insert(self, node_to_insert):
+        # A new node whose key is <= parent key becomes the left child
         if node_to_insert.key <= self.key:
             if not self._has_left_child():
                 self.left = node_to_insert
@@ -32,7 +33,10 @@ class AVLTree:
                 self.right = node_to_insert
             else:
                 self.right.insert(node_to_insert)
-        #You'll need to add code here
+        # The height of each node is equal to the height of its largest child + 1
+        self.height = self._max_of_child_heights() + 1
+
+
 
             
     # Here are some helper functions you may want to create
@@ -46,7 +50,19 @@ class AVLTree:
     
     # Return the largest height of self's children 
     def _max_of_child_heights(self):
-       pass
+        if self._has_left_child():
+            left_child_height = self.left.height
+        else:
+            left_child_height = -1
+        if self._has_right_child():
+            right_child_height = self.right.height
+        else:
+            right_child_height = -1
+
+        return max(left_child_height, right_child_height)
+
+
+
         
     # Return balance factor of self 
     def _rebalance(self):

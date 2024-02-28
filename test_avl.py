@@ -42,19 +42,19 @@ class TestAVLTree(unittest.TestCase):
     # When inserting a node, calculate the height of each node 
     # """
 
-    # def test_height_single_smaller(self):
-    #     """
-    #     Test 3: Inserting a node into a single-level tree appends the new node as the
-    #     left child, when the new node key is less than the parent's key.
-    #     (A new node whose key is <= parent key becomes the left child.)
-    #     The height of each node is equal to the height of its largest child + 1
-    #     """
-    #     avl_tree = AVLTree(5)
-    #     child = AVLTree(1)
-    #     avl_tree.insert(child)
-    #     self.assertEqual(child, avl_tree.left)
-    #     self.assertEqual(1, avl_tree.height)
-    #     self.assertEqual(0, avl_tree.left.height)
+    def test_height_single_smaller(self):
+        """
+        Test 3: Inserting a node into a single-level tree appends the new node as the
+        left child, when the new node key is less than the parent's key.
+        (A new node whose key is <= parent key becomes the left child.)
+        The height of each node is equal to the height of its largest child + 1
+        """
+        avl_tree = AVLTree(5)
+        child = AVLTree(1)
+        avl_tree.insert(child)
+        self.assertEqual(child, avl_tree.left)
+        self.assertEqual(1, avl_tree.height)
+        self.assertEqual(0, avl_tree.left.height)
         
     # def test_height_single_equal(self):
     #     """
