@@ -36,6 +36,7 @@ class AVLTree:
         # The height of each node is equal to the height of its largest child + 1
         self.height = self._max_of_child_heights() + 1
         self.balance_factor = self._rebalance()
+        return self
 
 
 
