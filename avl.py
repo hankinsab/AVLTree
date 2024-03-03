@@ -33,9 +33,8 @@ class AVLTree:
                 self.right = node_to_insert
             else:
                 self.right.insert(node_to_insert)
-        # The height of each node is equal to the height of its largest child + 1
-        self.height = self._max_of_child_heights() + 1
 
+        self.update_height()
         # update balance factor
         self.update_balance_factor()
 
@@ -55,6 +54,10 @@ class AVLTree:
 
         self.balance_factor = left_child_height - right_child_height
 
+    def update_height(self):
+        # The height of each node is equal to the height of its largest child + 1
+        self.height = self._max_of_child_heights() + 1
+
         # Here are some helper functions you may want to create
         # Right rotate around self
 
@@ -65,6 +68,8 @@ class AVLTree:
         new_root.right = old_root
         self = new_root
         old_root.left = None
+        old_root.update_height()
+        new_root.update_height()
         return self
 
 
