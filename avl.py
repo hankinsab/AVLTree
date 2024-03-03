@@ -40,6 +40,8 @@ class AVLTree:
 
         if self.balance_factor > 1:
             return self._right_rotate()
+        if self.balance_factor < -1:
+            return self._left_rotate()
         return self
 
     def update_balance_factor(self):
@@ -78,7 +80,13 @@ class AVLTree:
         # Left rotate around self
 
     def _left_rotate(self):
-        pass
+        old_root = self
+        new_root = self.right
+        new_root.left = old_root
+        self = new_root
+        old_root.right = None
+        return self
+
 
     # Return the largest height of self's children
     def _max_of_child_heights(self):
