@@ -7,7 +7,7 @@ In this assignment, you will engage in a test-driven development process to impl
 
 ## Run the Test Suite
 
-`python3 -m unittest test_bst`
+`python3 -m unittest test_avl`
 
 Open both *test_avl.py* and *avl.py* in your editor of choice. Modify the implementation in *avl.py* to pass the first test. Once it passes, create a commit. Then, uncomment the next test, and re-run the test suite. Implement what's necessary to pass the test, and then repeat this process.
 

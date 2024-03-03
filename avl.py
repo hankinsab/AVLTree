@@ -41,6 +41,7 @@ class AVLTree:
 
         if self.balance_factor > 1:
             return self._right_rotate()
+        return self
 
     def update_balance_factor(self):
         if self._has_left_child():
@@ -66,7 +67,6 @@ class AVLTree:
         old_root.left = None
         return self
 
-        self.balance_factor = self._rebalance()
 
         # Left rotate around self
 
