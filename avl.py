@@ -85,6 +85,10 @@ class AVLTree:
         new_root.left = old_root
         self = new_root
         old_root.right = None
+        old_root.update_height()
+        new_root.update_height()
+        old_root.update_balance_factor()
+        new_root.update_balance_factor()
         return self
 
 

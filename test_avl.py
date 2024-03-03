@@ -343,27 +343,27 @@ class TestAVLTree(unittest.TestCase):
         self.assertEqual(nine, avl_tree.right)
 
 
-    # def test_height_left_rotate_insert_two_smaller(self):
-    #     """
-    #     Test 16: Inserting a node with a key that is less than the right child's key 
-    #     causes a left rotation
-    #     The height of each node is equal to the height of its largest child + 1
+    def test_height_left_rotate_insert_two_smaller(self):
+        """
+        Test 16: Inserting a node with a key that is less than the right child's key
+        causes a left rotation
+        The height of each node is equal to the height of its largest child + 1
     
-    #        5                 7
-    #         \     =>        / \  
-    #          7             5   9
-    #           \        
-    #            9      
+           5                 7
+            \     =>        / \
+             7             5   9
+              \
+               9
        
-    #     """
-    #     avl_tree = five = AVLTree(5)
-    #     seven = AVLTree(7)
-    #     nine = AVLTree(9)
-    #     avl_tree=avl_tree.insert(seven)
-    #     avl_tree=avl_tree.insert(nine)
-    #     self.assertEqual(1, avl_tree.height)
-    #     self.assertEqual(0, avl_tree.right.height)
-    #     self.assertEqual(0, avl_tree.left.height)
+        """
+        avl_tree = five = AVLTree(5)
+        seven = AVLTree(7)
+        nine = AVLTree(9)
+        avl_tree=avl_tree.insert(seven)
+        avl_tree=avl_tree.insert(nine)
+        self.assertEqual(1, avl_tree.height)
+        self.assertEqual(0, avl_tree.right.height)
+        self.assertEqual(0, avl_tree.left.height)
 
     # def test_balance_factor_left_rotate_insert_two_smaller(self):
     #     """
