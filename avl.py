@@ -70,6 +70,8 @@ class AVLTree:
         old_root.left = None
         old_root.update_height()
         new_root.update_height()
+        old_root.update_balance_factor()
+        new_root.update_balance_factor()
         return self
 
 
