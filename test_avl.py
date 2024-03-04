@@ -541,85 +541,85 @@ class TestAVLTree(unittest.TestCase):
     # Hint: Don't just curse - be recursive.
     # """
 
-    # def test_three_level_tree_height(self):
-    #     """
-    #     Test 24: Height of each node is one bigger than tha max of its child's heights
-    #          10                
-    #         /  \            
-    #       5      15    
-    #      / \                    
-    #     2   7                  
+    def test_three_level_tree_height(self):
+        """
+        Test 24: Height of each node is one bigger than tha max of its child's heights
+             10
+            /  \
+          5      15
+         / \
+        2   7
                          
                         
-    #     Hint: Recursion, if you didn't already, makes this easy.
-    #     """
-    #     avl_tree = AVLTree(10)
-    #     avl_tree.insert(AVLTree(5))
-    #     avl_tree.insert(AVLTree(15))
-    #     avl_tree.insert(AVLTree(2))
-    #     avl_tree.insert(AVLTree(7))
-    #     self.assertEqual(2, avl_tree.height)
-    #     self.assertEqual(1, avl_tree.left.height)
-    #     self.assertEqual(0, avl_tree.left.left.height)
-    #     self.assertEqual(0, avl_tree.left.right.height)
-    #     self.assertEqual(0, avl_tree.right.height)
+        Hint: Recursion, if you didn't already, makes this easy.
+        """
+        avl_tree = AVLTree(10)
+        avl_tree.insert(AVLTree(5))
+        avl_tree.insert(AVLTree(15))
+        avl_tree.insert(AVLTree(2))
+        avl_tree.insert(AVLTree(7))
+        self.assertEqual(2, avl_tree.height)
+        self.assertEqual(1, avl_tree.left.height)
+        self.assertEqual(0, avl_tree.left.left.height)
+        self.assertEqual(0, avl_tree.left.right.height)
+        self.assertEqual(0, avl_tree.right.height)
 
-    # def test_three_level_tree_balance_factor(self):
-    #     """
-    #     Test 25: Balance factor of each node is the difference between its heights
-    #          10                
-    #         /  \            
-    #       5      15    
-    #      / \                    
-    #     2   7                  
+    def test_three_level_tree_balance_factor(self):
+        """
+        Test 25: Balance factor of each node is the difference between its heights
+             10
+            /  \
+          5      15
+         / \
+        2   7
                          
                         
-    #     Hint: Recursion, if you didn't already, makes this easy.
-    #     """
-    #     avl_tree = AVLTree(10)
-    #     avl_tree.insert(AVLTree(5))
-    #     avl_tree.insert(AVLTree(15))
-    #     avl_tree.insert(AVLTree(2))
-    #     avl_tree.insert(AVLTree(7))
-    #     self.assertEqual(1, avl_tree.balance_factor)
-    #     self.assertEqual(0, avl_tree.left.balance_factor)
-    #     self.assertEqual(0, avl_tree.left.left.balance_factor)
-    #     self.assertEqual(0, avl_tree.left.right.balance_factor)
-    #     self.assertEqual(0, avl_tree.right.balance_factor)
+        Hint: Recursion, if you didn't already, makes this easy.
+        """
+        avl_tree = AVLTree(10)
+        avl_tree.insert(AVLTree(5))
+        avl_tree.insert(AVLTree(15))
+        avl_tree.insert(AVLTree(2))
+        avl_tree.insert(AVLTree(7))
+        self.assertEqual(1, avl_tree.balance_factor)
+        self.assertEqual(0, avl_tree.left.balance_factor)
+        self.assertEqual(0, avl_tree.left.left.balance_factor)
+        self.assertEqual(0, avl_tree.left.right.balance_factor)
+        self.assertEqual(0, avl_tree.right.balance_factor)
 
-    # def test_insert_three_level_tree(self):
-    #     """
-    #     Test 26: Inserting a key results in a left imbalance and a right rotation
+    def test_insert_three_level_tree(self):
+        """
+        Test 26: Inserting a key results in a left imbalance and a right rotation
 
-    #          10                10                5
-    #        /    \            /    \             / \
-    #       5      15    =>   5      15  =>      2   10
-    #      / \               / \                /    / \
-    #     2   7             2   7              1    7   15
-    #                      /
-    #                     1
-    #     Hint: Recursion, if you didn't already, makes this easy.
-    #     """
+             10                10                5
+           /    \            /    \             / \
+          5      15    =>   5      15  =>      2   10
+         / \               / \                /    / \
+        2   7             2   7              1    7   15
+                         /
+                        1
+        Hint: Recursion, if you didn't already, makes this easy.
+        """
         
-    #     one=AVLTree(1)
-    #     two=AVLTree(2)
-    #     five=AVLTree(5)
-    #     seven=AVLTree(7)
-    #     ten=AVLTree(10)
-    #     fifteen=AVLTree(15)
-    #     avl_tree = ten
-    #     avl_tree = avl_tree.insert(five)
-    #     avl_tree = avl_tree.insert(fifteen)
-    #     avl_tree = avl_tree.insert(two)
-    #     avl_tree = avl_tree.insert(seven)
-    #     avl_tree = avl_tree.insert(one)
+        one=AVLTree(1)
+        two=AVLTree(2)
+        five=AVLTree(5)
+        seven=AVLTree(7)
+        ten=AVLTree(10)
+        fifteen=AVLTree(15)
+        avl_tree = ten
+        avl_tree = avl_tree.insert(five)
+        avl_tree = avl_tree.insert(fifteen)
+        avl_tree = avl_tree.insert(two)
+        avl_tree = avl_tree.insert(seven)
+        avl_tree = avl_tree.insert(one)
 
-    #     self.assertEqual(five, avl_tree)
-    #     self.assertEqual(two, avl_tree.left)
-    #     self.assertEqual(one, avl_tree.left.left)
-    #     self.assertEqual(ten, avl_tree.right)
-    #     self.assertEqual(seven, avl_tree.right.left)
-    #     self.assertEqual(fifteen, avl_tree.right.right)
+        self.assertEqual(five, avl_tree)
+        self.assertEqual(two, avl_tree.left)
+        self.assertEqual(one, avl_tree.left.left)
+        self.assertEqual(ten, avl_tree.right)
+        self.assertEqual(seven, avl_tree.right.left)
+        self.assertEqual(fifteen, avl_tree.right.right)
 
     # def test_three_level_tree_height_right_heavy(self):
     #     """

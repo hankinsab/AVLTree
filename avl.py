@@ -27,12 +27,12 @@ class AVLTree:
             if not self._has_left_child():
                 self.left = node_to_insert
             else:
-                self.left.insert(node_to_insert)
+                self.left = self.left.insert(node_to_insert)
         else:
             if not self._has_right_child():
                 self.right = node_to_insert
             else:
-                self.right.insert(node_to_insert)
+                self.right = self.right.insert(node_to_insert)
 
         self.update_height()
         self.update_balance_factor()
@@ -64,8 +64,18 @@ class AVLTree:
         self.balance_factor = left_child_height - right_child_height
 
     def update_height(self):
+        if self._has_left_child():
+            left_child_height = self.left.height
+        else:
+            left_child_height = -1
+        if self._has_right_child():
+            right_child_height = self.right.height
+        else:
+            right_child_height = -1
         # The height of each node is equal to the height of its largest child + 1
         self.height = self._max_of_child_heights() + 1
+
+
 
         # Here are some helper functions you may want to create
         # Right rotate around self
@@ -74,14 +84,13 @@ class AVLTree:
         # new root is the old node (self) left child
         old_root = self
         new_root = self.left
+        old_root.left = new_root.right
         new_root.right = old_root
-        self = new_root
-        old_root.left = None
         old_root.update_height()
         new_root.update_height()
         old_root.update_balance_factor()
         new_root.update_balance_factor()
-        return self
+        return new_root
 
 
         # Left rotate around self
@@ -89,14 +98,13 @@ class AVLTree:
     def _left_rotate(self):
         old_root = self
         new_root = self.right
+        old_root.right = new_root.left
         new_root.left = old_root
-        self = new_root
-        old_root.right = None
         old_root.update_height()
         new_root.update_height()
         old_root.update_balance_factor()
         new_root.update_balance_factor()
-        return self
+        return new_root
 
 
     # Return the largest height of self's children
