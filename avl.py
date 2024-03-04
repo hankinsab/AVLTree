@@ -35,11 +35,14 @@ class AVLTree:
                 self.right.insert(node_to_insert)
 
         self.update_height()
-        # update balance factor
         self.update_balance_factor()
 
         if self.balance_factor > 1:
-            return self._right_rotate()
+            if node_to_insert.key < self.left.key:
+                return self._right_rotate()
+            else:
+                self.left = self.left._left_rotate()
+                return self._right_rotate()
         if self.balance_factor < -1:
             return self._left_rotate()
         return self

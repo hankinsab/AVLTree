@@ -365,54 +365,54 @@ class TestAVLTree(unittest.TestCase):
         self.assertEqual(0, avl_tree.right.height)
         self.assertEqual(0, avl_tree.left.height)
 
-    # def test_balance_factor_left_rotate_insert_two_smaller(self):
-    #     """
-    #     Test 17: Inserting a node with a key that is less than the right child's key 
-    #     causes a left rotation
-    #     The balance factor of each node is equal to the difference between the height
-    #     of the left subtree and the right subtree
-    #        5                 7
-    #         \     =>        / \  
-    #          7             5   9
-    #           \        
-    #            9      
+    def test_balance_factor_left_rotate_insert_two_smaller(self):
+        """
+        Test 17: Inserting a node with a key that is less than the right child's key
+        causes a left rotation
+        The balance factor of each node is equal to the difference between the height
+        of the left subtree and the right subtree
+           5                 7
+            \     =>        / \
+             7             5   9
+              \
+               9
        
-    #     """
-    #     avl_tree = five = AVLTree(5)
-    #     seven = AVLTree(7)
-    #     nine = AVLTree(9)
-    #     avl_tree=avl_tree.insert(seven)
-    #     avl_tree=avl_tree.insert(nine)
-    #     self.assertEqual(0, avl_tree.balance_factor)
-    #     self.assertEqual(0, avl_tree.right.balance_factor)
-    #     self.assertEqual(0, avl_tree.left.balance_factor)
+        """
+        avl_tree = five = AVLTree(5)
+        seven = AVLTree(7)
+        nine = AVLTree(9)
+        avl_tree=avl_tree.insert(seven)
+        avl_tree=avl_tree.insert(nine)
+        self.assertEqual(0, avl_tree.balance_factor)
+        self.assertEqual(0, avl_tree.right.balance_factor)
+        self.assertEqual(0, avl_tree.left.balance_factor)
  
     # # """
     # # Toddler, two-level trees.
     # # Insertion
     # # Left Subtree Right Imbalance. Left Rotation Followed By Right rotation
     # # # """    
-    # def test_left_right_rotate_insert_two_smaller(self):
-    #     """
-    #     Test 18: Inserting a node with a key that is greater than the left child's key 
-    #     causes a left rotation followed by a right rotation
+    def test_left_right_rotate_insert_two_smaller(self):
+        """
+        Test 18: Inserting a node with a key that is greater than the left child's key
+        causes a left rotation followed by a right rotation
     
-    #               5           5           4
-    #              /    =>     /    =>     / \ 
-    #             3           4           3   5
-    #              \         /
-    #               4       3
+                  5           5           4
+                 /    =>     /    =>     / \
+                3           4           3   5
+                 \         /
+                  4       3
        
-    #     HINT:  left rotate around node 3 followed by right_rotate around node 5
-    #     """
-    #     avl_tree = five = AVLTree(5)
-    #     three = AVLTree(3)
-    #     four = AVLTree(4)
-    #     avl_tree=avl_tree.insert(three)
-    #     avl_tree=avl_tree.insert(four)
-    #     self.assertEqual(four, avl_tree)
-    #     self.assertEqual(three, avl_tree.left)
-    #     self.assertEqual(five, avl_tree.right)
+        HINT:  left rotate around node 3 followed by right_rotate around node 5
+        """
+        avl_tree = five = AVLTree(5)
+        three = AVLTree(3)
+        four = AVLTree(4)
+        avl_tree=avl_tree.insert(three)
+        avl_tree=avl_tree.insert(four)
+        self.assertEqual(four, avl_tree)
+        self.assertEqual(three, avl_tree.left)
+        self.assertEqual(five, avl_tree.right)
 
 
     # def test_height_left_right_rotate_insert_two_smaller(self):
