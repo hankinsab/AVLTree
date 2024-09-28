@@ -2,6 +2,8 @@
 # Run me via: python3 -m unittest test_avl
 
 import unittest
+import importlib
+importlib.reload(unittest)
 import time
 from avl import AVLTree
 
@@ -621,92 +623,92 @@ class TestAVLTree(unittest.TestCase):
         self.assertEqual(seven, avl_tree.right.left)
         self.assertEqual(fifteen, avl_tree.right.right)
 
-    # def test_three_level_tree_height_right_heavy(self):
-    #     """
-    #     Test 27: Height of each node is one bigger than than max of its child's heights
-    #          10                
-    #         /  \            
-    #        5    15    
-    #             / \                 
-    #            12  20               
+    def test_three_level_tree_height_right_heavy(self):
+        """
+        Test 27: Height of each node is one bigger than than max of its child's heights
+             10
+            /  \
+           5    15
+                / \
+               12  20
                          
                         
-    #     Hint: Recursion, if you didn't already, makes this easy.
-    #     """
-    #     avl_tree = AVLTree(10)
-    #     avl_tree.insert(AVLTree(5))
-    #     avl_tree.insert(AVLTree(15))
-    #     avl_tree.insert(AVLTree(12))
-    #     avl_tree.insert(AVLTree(20))
-    #     self.assertEqual(2, avl_tree.height)
-    #     self.assertEqual(0, avl_tree.left.height)
-    #     self.assertEqual(1, avl_tree.right.height)
-    #     self.assertEqual(0, avl_tree.right.left.height)
-    #     self.assertEqual(0, avl_tree.right.right.height)
+        Hint: Recursion, if you didn't already, makes this easy.
+        """
+        avl_tree = AVLTree(10)
+        avl_tree.insert(AVLTree(5))
+        avl_tree.insert(AVLTree(15))
+        avl_tree.insert(AVLTree(12))
+        avl_tree.insert(AVLTree(20))
+        self.assertEqual(2, avl_tree.height)
+        self.assertEqual(0, avl_tree.left.height)
+        self.assertEqual(1, avl_tree.right.height)
+        self.assertEqual(0, avl_tree.right.left.height)
+        self.assertEqual(0, avl_tree.right.right.height)
 
-    # def test_three_level_tree_right_heavy_balance_factor(self):
-    #     """
-    #     Test 28: Balance factor of each node is the difference between its children's heights
-    #         10                
-    #         /  \            
-    #        5    15    
-    #             / \                 
-    #            12  20              
+    def test_three_level_tree_right_heavy_balance_factor(self):
+        """
+        Test 28: Balance factor of each node is the difference between its children's heights
+            10
+            /  \
+           5    15
+                / \
+               12  20
                                           
-    #     Hint: Recursion, if you didn't already, makes this easy.
-    #     """
-    #     avl_tree = AVLTree(10)
-    #     avl_tree.insert(AVLTree(5))
-    #     avl_tree.insert(AVLTree(15))
-    #     avl_tree.insert(AVLTree(12))
-    #     avl_tree.insert(AVLTree(20))
-    #     self.assertEqual(-1, avl_tree.balance_factor)
-    #     self.assertEqual(0, avl_tree.left.balance_factor)
-    #     self.assertEqual(0, avl_tree.right.balance_factor)
-    #     self.assertEqual(0, avl_tree.right.left.balance_factor)
-    #     self.assertEqual(0, avl_tree.right.right.balance_factor)
+        Hint: Recursion, if you didn't already, makes this easy.
+        """
+        avl_tree = AVLTree(10)
+        avl_tree.insert(AVLTree(5))
+        avl_tree.insert(AVLTree(15))
+        avl_tree.insert(AVLTree(12))
+        avl_tree.insert(AVLTree(20))
+        self.assertEqual(-1, avl_tree.balance_factor)
+        self.assertEqual(0, avl_tree.left.balance_factor)
+        self.assertEqual(0, avl_tree.right.balance_factor)
+        self.assertEqual(0, avl_tree.right.left.balance_factor)
+        self.assertEqual(0, avl_tree.right.right.balance_factor)
        
 
-    # def test_insert_three_level_tree_right_heavy(self):
-    #     """
-    #     Test 29: Inserting a key results in a left imbalance and a right rotation
+    def test_insert_three_level_tree_right_heavy(self):
+        """
+        Test 29: Inserting a key results in a left imbalance and a right rotation
 
-    #          10                
-    #         /  \            
-    #        5    15    
-    #             / \                 
-    #            12  20  
+             10
+            /  \
+           5    15
+                / \
+               12  20
         
 
-    #          10                10                15
-    #        /    \              / \               / \
-    #       5      15    =>     5   15    =>      10   20
-    #             / \               / \           / \    \
-    #            12   20           12  20        5   12   25
-    #                                   \
-    #                                    25
-    #     Hint: Recursion, if you didn't already, makes this easy.
-    #     """
+             10                10                15
+           /    \              / \               / \
+          5      15    =>     5   15    =>      10   20
+                / \               / \           / \    \
+               12   20           12  20        5   12   25
+                                      \
+                                       25
+        Hint: Recursion, if you didn't already, makes this easy.
+        """
 
-    #     five=AVLTree(5)
-    #     ten=AVLTree(10)
-    #     twelve=AVLTree(12)
-    #     fifteen=AVLTree(15)
-    #     twenty=AVLTree(20)
-    #     twentyfive=AVLTree(25)
-    #     avl_tree = ten
-    #     avl_tree = avl_tree.insert(five)
-    #     avl_tree = avl_tree.insert(fifteen)
-    #     avl_tree = avl_tree.insert(twelve)
-    #     avl_tree = avl_tree.insert(twenty)
-    #     avl_tree = avl_tree.insert(twentyfive)
+        five=AVLTree(5)
+        ten=AVLTree(10)
+        twelve=AVLTree(12)
+        fifteen=AVLTree(15)
+        twenty=AVLTree(20)
+        twentyfive=AVLTree(25)
+        avl_tree = ten
+        avl_tree = avl_tree.insert(five)
+        avl_tree = avl_tree.insert(fifteen)
+        avl_tree = avl_tree.insert(twelve)
+        avl_tree = avl_tree.insert(twenty)
+        avl_tree = avl_tree.insert(twentyfive)
 
-    #     self.assertEqual(fifteen, avl_tree)
-    #     self.assertEqual(ten, avl_tree.left)
-    #     self.assertEqual(five, avl_tree.left.left)
-    #     self.assertEqual(twelve, avl_tree.left.right)
-    #     self.assertEqual(twenty, avl_tree.right)
-    #     self.assertEqual(twentyfive, avl_tree.right.right)
+        self.assertEqual(fifteen, avl_tree)
+        self.assertEqual(ten, avl_tree.left)
+        self.assertEqual(five, avl_tree.left.left)
+        self.assertEqual(twelve, avl_tree.left.right)
+        self.assertEqual(twenty, avl_tree.right)
+        self.assertEqual(twentyfive, avl_tree.right.right)
 
 
 if __name__ == '__main__':
